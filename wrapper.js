@@ -1,9 +1,14 @@
-import {describe, Report, expect} from './testify.js' 
-
+import describe from './modules/describe.js'
 let window = document.getElementById("main")
-let report = Report.create()
 
-window.innerHTML = Report.html(report)
-Report.print(report)
-console.log(expect(1).toBe(2))
-describe("this is a description")
+let report = describe("test")
+             .it("should fail")
+             .expect(true).toBe(false)
+             .expect(1).toBe(2)
+             .it("should pass")
+             .expect(true).toBe(true)
+if (report.failed){
+  for (let each of report.queue) {
+    console.log(each)
+  }
+}
