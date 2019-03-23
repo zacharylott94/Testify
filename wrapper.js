@@ -1,9 +1,10 @@
-import describe from './modules/describe.js'
+import describe from './testify.js'
 let window = document.getElementById("main")
 
 let suite = describe("test")
              .it("should fail")
-             .expect(true).toBe(false)
+let result = true
+suite.expect(result).toBe(false)
              .expect(1).toBe(2)
              .it("should pass")
              .expect(true).toBe(true)
@@ -12,5 +13,5 @@ let suite = describe("test")
              .expect('9').toBe(9)
 
 
-suite.log()
+
 suite.HTML(window)
