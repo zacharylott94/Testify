@@ -1,4 +1,4 @@
-//import expect from './expect.js'
+import it from './modules/it.js'
 
 export default function describe (description) {
   let object = {
@@ -35,15 +35,7 @@ export default function describe (description) {
         }
       }
     },
-    it: function(description) {
-      if (this.last.length === 1) {
-        this.queue.pop()
-      }
-      let functionality = [description]
-      this.queue.push(functionality)
-      this.last = functionality
-      return this
-    },
+    it,
     expect: function(val1){
       function toBe(val2) {
         if (val1 !== val2){
